@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply from: '../android_commons.gradle'
+
+android {
+    defaultConfig {
+        applicationId ApplicationId.id
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    dataBinding {
+        enabled true
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+
+    // NAVIGATION
+    implementation project(Modules.navigation)
+
+    // COMMON
+    implementation project(Modules.common)
+
+    // DATA modules
+    implementation project(Modules.local)
+    implementation project(Modules.remote)
+    implementation project(Modules.repository)
+
+
+    // FEATURES modules
+    implementation project(Modules.features)
+    // KOIN
+    implementation Libraries.koin
+    implementation Libraries.koinViewModel
+    implementation Libraries.koinCore
+
+    implementation KotlinLibraries.kotlin
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    // ANDROID
+    implementation AndroidLibraries.constraintLayout
+    implementation AndroidLibraries.appCompat
+    implementation AndroidLibraries.navigation
+    implementation AndroidLibraries.navigationFrag
+    implementation AndroidLibraries.material
+    implementation AndroidLibraries.materialDynamic
+}
