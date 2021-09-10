@@ -1,4 +1,4 @@
-# stockbit_mini_project<br />
+# mini_project<br />
 <br />
 Stockbit mini project written in Kotlin. Design pattern using MVVM.<br />
 <br />
