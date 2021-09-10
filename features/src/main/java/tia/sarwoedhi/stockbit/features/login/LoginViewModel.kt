@@ -1,3 +1,7 @@
+/**
+ * created by Tia Sarwoedhi on 10/9/2021
+ **/
+
 package tia.sarwoedhi.stockbit.features.login
 
 import android.util.Log
@@ -18,7 +22,7 @@ class LoginViewModel(private var userRepositoryLocal: UserRepositoryLocal): View
             if(data) loginCheck.postValue(Resource.success(data))
         } catch (e: Exception) {
             Log.e("NetworkBoundResource", "An error happened: $e")
-            loginCheck.postValue(Resource.error(e,false))
+            loginCheck.postValue(Resource.error(e.message?:"",false))
         }
         return loginCheck
     }
@@ -30,7 +34,7 @@ class LoginViewModel(private var userRepositoryLocal: UserRepositoryLocal): View
             loginCheck.postValue(Resource.success(true))
         } catch (e: Exception) {
             Log.e("NetworkBoundResource", "An error happened: $e")
-            loginCheck.postValue(Resource.error(e,false))
+            loginCheck.postValue(Resource.error(e.message?:"",false))
         }
         return loginCheck
     }

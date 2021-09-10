@@ -1,3 +1,7 @@
+/**
+ * created by Tia Sarwoedhi on 10/9/2021
+ **/
+
 package tia.sarwoedhi.stockbit.features.login
 
 import android.os.Bundle
@@ -6,9 +10,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.sarwoedhi.features.R
 import com.sarwoedhi.features.databinding.FragmentLoginBinding
 import org.koin.android.viewmodel.ext.android.viewModel
+import tia.sarwoedhi.stockbit.common.extension.setVisibility
+import tia.sarwoedhi.stockbit.common.extension.showSnackbar
 import tia.sarwoedhi.stockbit.repository.utils.Resource
 
 
@@ -22,7 +29,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
 
         return binding.root
@@ -51,14 +58,12 @@ class LoginFragment : Fragment() {
     }
 
     private fun initView(){
-        binding.toolbarLogin.ivNav.visibility = View.GONE
-        binding.toolbarLogin.ivAction.visibility = View.GONE
+        binding.toolbarLogin.ivNav.setVisibility(false)
+        binding.toolbarLogin.ivAction.setVisibility(false)
         binding.toolbarLogin.tvTitle.text = getString(R.string.masuk_login)
     }
 
     private fun initAction(){
-        binding.etUserName.setText("Testing1")
-        binding.etPassword.setText("Testing1")
         binding.btnLogin.setOnClickListener {
             validation()
         }
@@ -75,13 +80,13 @@ class LoginFragment : Fragment() {
                                 findNavController().navigate(R.id.action_loginFragment_to_watchListFragment)
                             }
                         }
-                        Resource.Status.LOADING -> {
-                        }
-                        Resource.Status.ERROR -> {
-                        }
+                        Resource.Status.LOADING -> { }
+                        Resource.Status.ERROR -> { }
                     }
                 }
             )
+        }else{
+            showSnackbar("The username / email field is required\nThe password field is required",Snackbar.LENGTH_SHORT)
         }
     }
 }

@@ -1,3 +1,7 @@
+/**
+ * created by Tia Sarwoedhi on 10/9/2021
+ **/
+
 package tia.sarwoedhi.stockbit.repository.user
 
 import android.content.Context
@@ -13,6 +17,10 @@ class UserRepositoryLocal (context: Context, gson: Gson): SharedPreference(conte
 
     override fun doLogin(keyLogin: String) {
        saveDataBoolean(keyLogin,true)
+    }
+
+    override fun doLogOut(key: String) {
+        clearData(key)
     }
 
 }

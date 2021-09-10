@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ created by Tia Sarwoedhi on 10/9/2021
+  -->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
           package="com.stockbit.hiring">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
             android:name="tia.sarwoedhi.stockbit.App"
             android:allowBackup="true"

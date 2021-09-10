@@ -1,3 +1,7 @@
+/*
+ * created by Tia Sarwoedhi on 10/9/2021
+ */
+
 apply plugin: 'kotlin-android'
 
 android {
@@ -7,6 +11,12 @@ android {
         targetSdkVersion Versions.targetSdk
         versionCode Releases.versionCode
         versionName Releases.versionName
+        buildConfigField "String", "BASE_URL", "\"${BASE_URL}\""
+        buildConfigField "String", "API_KEY", "\"${API_KEY}\""
+        buildConfigField "String", "IMAGE_URL", "\"${IMAGE_URL}\""
+        buildConfigField "String", "AUTHORIZATION", "\"${AUTHORIZATION}\""
+        buildConfigField "String", "CONTENT_TYPE_HEADER", "\"${CONTENT_TYPE_HEADER}\""
+        buildConfigField "String", "APPLICATION_JSON", "\"${APPLICATION_JSON}\""
     }
     compileOptions {
         sourceCompatibility = 1.8

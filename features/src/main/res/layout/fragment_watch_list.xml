@@ -1,13 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<!--
+  ~ created by Tia Sarwoedhi on 10/9/2021
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="tia.sarwoedhi.stockbit.features.home.watch_list.WatchListFragment">
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbarWatchList"
+        layout="@layout/layout_toolbar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/progessBarWatchList"
+        app:layout_constraintTop_toBottomOf="@id/toolbarWatchList">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAllWatchList"
+            style="@style/ButtonBorderLess"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center_vertical"
+            android:text="@string/all_watch_list"
+            android:textCursorDrawable="@drawable/ic_arrow_down"
+            app:layout_constraintEnd_toStartOf="@id/btnAddSymbol"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:clickable="false"
+            android:src="@drawable/ic_arrow_down"
+            android:text="@string/all_watch_list"
+            app:layout_constraintBottom_toBottomOf="@id/btnAllWatchList"
+            app:layout_constraintEnd_toEndOf="@id/btnAllWatchList"
+            app:layout_constraintStart_toStartOf="@id/btnAllWatchList"
+            app:layout_constraintTop_toTopOf="@id/btnAllWatchList" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAddSymbol"
+            style="@style/ButtonBorderLess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:drawableStart="@drawable/ic_add_circle_outline"
+            android:drawablePadding="4dp"
+            android:gravity="center_vertical"
+            android:text="@string/add_symbol"
+            android:textColor="@color/greyFont2"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@id/btnAllWatchList"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnAllWatchList" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/greyLine"
+            app:layout_constraintTop_toBottomOf="@id/btnAllWatchList" />
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/pullRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/view1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCryptoData"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/view1"
+                tools:itemCount="12"
+                tools:listitem="@layout/item_watch_list"
+                tools:visibility="visible" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="WatchListFragment" />
-</FrameLayout>
+        android:id="@+id/tvInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progessBarWatchList"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

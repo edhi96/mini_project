@@ -1,9 +1,10 @@
+/*
+ * created by Tia Sarwoedhi on 10/9/2021
+ */
+
 apply from: '../android_feature_dependencies.gradle'
 
 android {
-    defaultConfig {
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
     buildFeatures {
         viewBinding = true
     }

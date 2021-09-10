@@ -1,3 +1,7 @@
+/*
+ * created by Tia Sarwoedhi on 10/9/2021
+ */
+
 apply plugin: 'com.android.library'
 apply from: '../../android_commons.gradle'
 apply plugin: 'kotlin-kapt'
@@ -15,6 +19,7 @@ dependencies {
     implementation Libraries.retrofit
     implementation Libraries.retrofitGsonConverter
     implementation Libraries.httpLoggingInterceptor
+    implementation AndroidLibraries.kotlinCoroutineAndroid
     // DATA MODULE
     implementation project(Modules.model)
     // TEST

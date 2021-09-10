@@ -1,12 +1,11 @@
+/*
+ * created by Tia Sarwoedhi on 10/9/2021
+ */
+
 apply plugin: 'com.android.library'
 apply from: '../../android_commons.gradle'
 apply plugin: 'kotlin-kapt'
 
-android {
-    defaultConfig {
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-}
 
 dependencies {
     // ROOM

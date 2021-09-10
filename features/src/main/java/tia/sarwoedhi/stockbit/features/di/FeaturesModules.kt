@@ -1,3 +1,7 @@
+/**
+ * created by Tia Sarwoedhi on 10/9/2021
+ **/
+
 package tia.sarwoedhi.stockbit.features.di
 
 import org.koin.android.viewmodel.dsl.viewModel
@@ -16,7 +20,7 @@ var featureModules = module {
 
     viewModel { HomeViewModel() }
 
-    viewModel { WatchListViewModel() }
+    viewModel { WatchListViewModel(get(),get(),get()) }
 
     viewModel { StreamViewModel() }
 

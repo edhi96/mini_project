@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ created by Tia Sarwoedhi on 10/9/2021
+  -->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sarwoedhi.features">
-
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

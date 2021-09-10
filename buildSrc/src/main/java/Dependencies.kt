@@ -1,5 +1,9 @@
+/**
+ * created by Tia Sarwoedhi on 10/9/2021
+ **/
+
 object ApplicationId {
-    val id = "com.stockbit.stockbit"
+    val id = "tia.sarwoedhi.stockbit"
 }
 
 object Modules {
@@ -34,12 +38,12 @@ object Versions {
     val junit = "4.12"
     val androidTestRunner = "1.1.2-alpha02"
     val espressoCore = "3.2.0-alpha02"
-    val retrofit = "2.8.1"
+    val retrofit = "2.9.0"
     val retrofitCoroutines = "0.9.2"
     val retrofitGson = "2.9.0"
     val gson = "2.8.5"
     val okHttp = "3.12.1"
-    val coroutines = "1.4.3"
+    val coroutines = "1.3.9"
     val koin = "2.1.6"
     val timber = "4.7.1"
     val lifecycle = "2.2.0"
